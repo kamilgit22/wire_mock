@@ -1,0 +1,1 @@
+web: java -jar wiremock-standalone-4.0.0-beta.14.jar --port $PORT
