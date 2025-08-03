@@ -1,0 +1,22 @@
+name: Deploy WireMock to Heroku
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy to Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          git remote add heroku https://git.heroku.com/wiremock.git
+          git config --global user.email "kamil.git22@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          heroku git:remote -a wiremock
+          git push heroku HEAD:main --force
