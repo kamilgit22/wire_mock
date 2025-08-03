@@ -11,9 +11,35 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: wiremock
-          heroku_email: kamil.git22@gmail.com
+      - name: Install Heroku CLI
+        run: curl https://cli-assets.heroku.com/install.sh | sh
+
+      - name: Log in to Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          echo "$HEROKU_API_KEY" | heroku auth:token
+          heroku whoami
+
+      - name: Heroku create/check
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          if ! heroku apps:info -a wiremock; then
+            heroku create wiremock
+          else
+            echo "App already exists"
+          fi
+
+      - name: Set Heroku git remote
+        run: git remote add heroku https://git.heroku.com/wiremock.git
+
+      - name: Configure git user
+        run: |
+          git config --global user.email "kamil.git22@gmail.com"
+          git config --global user.name "github-actions[bot]"
+
+      - name: Push to Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: git push heroku HEAD:main --force
