@@ -1,1 +1,1 @@
-web: java -jar target/wiremock-app.jar --port $PORT
+web: java -cp target/wiremock-app.jar com.github.tomakehurst.wiremock.standalone.WireMockServerRunner --port $PORT
