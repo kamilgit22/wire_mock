@@ -44,5 +44,8 @@ jobs:
             echo "App already exists"
           fi
 
+      - name: Unshallow git clone
+        run: git fetch --all --unshallow
+
       - name: Push to Heroku
         run: git push heroku HEAD:main --force
