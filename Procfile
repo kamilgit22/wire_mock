@@ -1,1 +1,1 @@
-web: java -jar target/wiremock-app-4.0.0-beta.14.jar --port $PORT
+web: java -jar target/wiremock-app-1.0.0.jar --port $PORT
