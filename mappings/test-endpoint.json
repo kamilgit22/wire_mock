@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/test-api"
+  },
+  "response": {
+    "status": 200,
+    "body": "Działa testowy endpoint!"
+  }
+}
