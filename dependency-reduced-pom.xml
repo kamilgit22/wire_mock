@@ -3,9 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
   <artifactId>wiremock-app</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <build>
-    <finalName>wiremock-app</finalName>
+    <finalName>wiremock-app-1.0.1</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
@@ -19,7 +19,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.github.tomakehurst.wiremock.standalone.WireMockServer</mainClass>
+                  <mainClass>com.github.tomakehurst.wiremock.WireMockServer</mainClass>
                 </transformer>
               </transformers>
             </configuration>
