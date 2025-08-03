@@ -17,13 +17,3 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: wiremock
           heroku_email: kamil.git22@gmail.com
-
-      - name: Deploy to Heroku
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: |
-          git remote add heroku https://git.heroku.com/wiremock.git
-          git config --global user.email "kamil.git22@gmail.com"
-          git config --global user.name "github-actions[bot]"
-          heroku git:remote -a wiremock
-          git push heroku HEAD:main --force
