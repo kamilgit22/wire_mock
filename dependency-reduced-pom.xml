@@ -19,7 +19,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>org.wiremock.standalone.WireMockServerRunner</mainClass>
+                  <mainClass>com.github.tomakehurst.wiremock.standalone.WireMockServer</mainClass>
                 </transformer>
               </transformers>
             </configuration>
