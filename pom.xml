@@ -38,7 +38,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.github.tomakehurst.wiremock.standalone.WireMockServerR</mainClass>
+                                    <mainClass>com.github.tomakehurst.wiremock.standalone.WireMockServerRunner</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
